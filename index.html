@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/javascript.svg" />
+    <title>Electro Chowder</title>
+    <!-- Fonts for the Neon Sign -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/src/style.css">
+    <!-- Spline Viewer Script -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.8.0/build/spline-viewer.js"></script>
+</head>
+
+<body>
+
+    <div id="bg-image-container"></div>
+    <!-- Section 1: The full-screen hero with the neon sign -->
+    <section class="hero-section">
+        <div class="sign-container">
+            <!-- <h2 class="neon-text welcome-line">WELCOME TO</h2> -->
+            <h1 class="neon-text main-line">ELECTRO CHOWDER</h1>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="relative z-10">
+        <div class="max-w-4xl mx-auto px-6 pb-16 md:pb-24 space-y-16 md:space-y-24 glass-container rounded-t-xl">
+
+            <!-- Section 1: Introduction -->
+            <section class="pt-16 md:pt-24">
+                <h2 class="text-3xl md:text-4xl tracking-tight border-b border-slate-700 pb-4 mb-8 text-slate-200">The
+                    Digital Landscape is Flat.</h2>
+                <div class="text-slate-300 text-base md:text-lg leading-relaxed space-y-4">
+                    <p>
+                        Today, most of the web feels the same—a collection of static pages and templated designs. It’s
+                        functional, but it lacks a soul. For businesses built on creativity and innovation, a flat
+                        digital presence isn't just a missed opportunity; it's a misrepresentation of who they are.
+                    </p>
+                    <p>
+                        At Electro Chowder, we see a different future. A web that is alive, interactive, and
+                        multi-sensory. We bridge the gap between a brand's vision and the technology required to bring
+                        it to life in three dimensions.
+                    </p>
+                </div>
+                <div
+                    class="presenter-notes hidden mt-6 p-4 bg-slate-800/50 border border-slate-700 rounded-lg text-sm text-slate-400">
+                    <h4 class="font-bold text-slate-300 mb-2">Talking Points:</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Start by stating the core problem: the web is boring and templated.</li>
+                        <li>Explain that for creative brands, this is a major issue.</li>
+                        <li>Introduce Electro Chowder as the solution.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 2: What We Do -->
+            <section>
+                <h2 class="text-3xl md:text-4xl tracking-tight border-b border-slate-700 pb-4 mb-8 text-slate-200">Our
+                    Services: A Symphony of Skills</h2>
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="card-container">
+                        <canvas class="absolute top-0 left-0 w-full h-full canvas-bg" id="canvas-3d"></canvas>
+                        <div class="card-content">
+                            <h3 class="card-title">3D & Interactive Art</h3>
+                            <p class="card-text">Transforming concepts into immersive 3D worlds.</p>
+                        </div>
+                    </div>
+                    <div class="card-container">
+                        <canvas class="absolute top-0 left-0 w-full h-full canvas-bg" id="canvas-dev"></canvas>
+                        <div class="card-content">
+                            <h3 class="card-title">Bespoke Development</h3>
+                            <p class="card-text">Building the robust foundation for unique experiences.</p>
+                        </div>
+                    </div>
+                    <div class="card-container">
+                        <canvas class="absolute top-0 left-0 w-full h-full canvas-bg" id="canvas-sound"></canvas>
+                        <div class="card-content">
+                            <h3 class="card-title">Music & Sound</h3>
+                            <p class="card-text">Composing the audio layer that enhances immersion.</p>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Card 4: Pricing (Clickable) -->
+                    <div class="card-container cursor-pointer" id="pricing-card">
+                        <canvas class="absolute top-0 left-0 w-full h-full canvas-bg" id="canvas-price"></canvas>
+                        <div class="card-content">
+                            <h3 class="card-title">View Pricing Tiers</h3>
+                            <p class="card-text">Packages designed to bring your vision to life.</p>
+                        </div>
+
+                        <!-- Detailed pricing info - HIDDEN BY DEFAULT -->
+                        <div class="pricing-details" id="modal-overlay">
+                            <canvas class="absolute top-0 left-0 w-full h-full canvas-bg" id="canvas-price"></canvas>
+                            <h3 class="text-2xl font-bold text-white mb-4">Service Tiers</h3>
+                            <div class="space-y-4 text-left">
+                                <div>
+                                    <h4 class="font-bold text-purple-400">The Digital Presence</h4>
+                                    <p class="text-sm text-slate-400">A professional online foundation. (Starts at
+                                        €2,000)</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-purple-400">The Immersive Showcase</h4>
+                                    <p class="text-sm text-slate-400">Our signature 3D landing page experience. (Starts
+                                        at €6,000)</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-purple-400">The Signature World</h4>
+                                    <p class="text-sm text-slate-400">A fully bespoke, top-tier digital universe.
+                                        (Starts: €15,000)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+
+        </div>
+        <div
+            class="presenter-notes hidden mt-8 p-4 bg-slate-800/50 border border-slate-700 rounded-lg text-sm text-slate-400">
+            <h4 class="font-bold text-slate-300 mb-2">Talking Points:</h4>
+            <ul class="list-disc list-inside space-y-1">
+                <li>Introduce the three core skills as a "symphony".</li>
+                <li>Briefly explain what each service entails while hovering over the cards.</li>
+                <li>Emphasize that the magic happens when these skills are combined.</li>
+            </ul>
+        </div>
+        </section>
+
+
+
+  <!-- Section 3: Showcase -->
+<section>
+    <!-- <h2 class="text-3xl md:text-4xl tracking-tight border-b border-slate-700 pb-4 mb-8">Showcase</h2> -->
+    <div class="showcase-grid">
+
+        <!-- Showcase Item 1 -->
+        <div class="showcase-item">
+            <!-- <h3 class="showcase-title">Example Product</h3> -->
+            <div class="spline-container">
+                <!-- <spline-viewer url="https://prod.spline.design/AYK4xrmL18OwYAib/scene.splinecode"></spline-viewer> -->
+                 <canvas  id="example-1"></canvas>
+            </div>
+            
+
+        </div>
+
+        <!-- Showcase Item 2 -->
+        <div class="showcase-item">
+            <h3 class="showcase-title">Voice Assistance</h3>
+            <div class="spline-container">
+               
+               <a href="/EC.html"><img src="/EC2.png"  ></a>
+                <!-- <canvas id="example-2"></canvas> -->
+                
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+     <div class="presenter-notes hidden mt-6 p-4 bg-slate-800/50 border border-slate-700 rounded-lg text-sm text-slate-400">
+        <h4 class="font-bold text-slate-300 mb-2">Talking Points:</h4>
+        <ul class="list-disc list-inside space-y-1">
+            <li>Demonstrate the product visualizer.</li>
+            <li>Talk about the voice assistance interactive demo.</li>
+        </ul>
+    </div>
+</section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-[#060918]">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="text-slate-400">Thank you for your consideration.</p>
+            <p class="text-sm text-slate-500 mt-2">Electro Chowder © 2025</p>
+        </div>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.94/build/spline-viewer.js"></script>
+</body>
+
+</html>

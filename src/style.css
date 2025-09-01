@@ -1,0 +1,238 @@
+/* This imports Tailwind's base styles, component classes, and utility classes.
+  Vite will process these and build your final stylesheet.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@keyframes scroll-blur {
+  from {
+    filter: blur(0px);
+  }
+  to {
+    filter: blur(8px);
+  }
+}
+
+
+/* These are custom component classes you can apply in your HTML.
+  This is a good way to keep your HTML cleaner if you reuse styles.
+*/
+@layer components {
+  /* The "glassmorphism" effect for the main content area.
+    It has a semi-transparent background, a backdrop blur, and a subtle border.
+  */
+
+
+
+
+  .canvas-bg {
+    /* pointer-events: none; */
+}
+
+#bg-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  background-size: cover;
+  background-position: center;
+  background-image: url('/building nf.png');
+  filter: blur(0px);
+  animation: scroll-blur linear forwards;
+  animation-timeline: scroll(root);
+  animation-range: 0px 800px;
+}
+
+@keyframes scroll-blur {
+  to {
+    filter: blur(12px);
+  }
+}
+  .glass-container {
+    background-color: rgba(6, 9, 24, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px); /* For Safari support */
+    border: 1px solid rgba(100, 116, 139, 0.3);
+  }
+:root {
+    --neon-pink: #ff00de;
+}
+
+.hero-section {
+    /* Make the hero section "stick" to the top of the viewport when scrolling */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* This z-index ensures the main content scrolls OVER the hero */
+    z-index: -5;
+}
+
+.sign-container {
+    position: relative;
+    text-align: center;
+    /* Adjusted margin to vertically center the single line of text */
+    margin-top: -13vh;
+    width: 85vw; 
+    max-width: 950px;
+}
+
+.neon-text {
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px var(--neon-pink),
+        0 0 82px var(--neon-pink),
+        0 0 92px var(--neon-pink),
+        0 0 102px var(--neon-pink),
+        0 0 151px var(--neon-pink);
+}
+
+.neon-text-2 {
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px var(--neon-pink),
+        0 0 82px var(--neon-pink),
+        0 0 92px var(--neon-pink),
+        0 0 102px var(--neon-pink),
+        0 0 151px var(--neon-pink);
+}
+
+.main-line {
+    font-size: clamp(1.8rem, 6vw, 3.5rem); 
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    animation: flicker-main 3s infinite alternate;
+}
+
+@media (min-width: 768px) {
+    .sign-container {
+        width: 70vw;
+        /* Adjusted margin for tablets */
+        margin-top: -10vh;
+    }
+    .main-line {
+        font-size: clamp(2.5rem, 7vw, 6rem);
+        letter-spacing: 0.08em;
+    }
+}
+
+/* Large Desktop Styles */
+@media (min-width: 1200px) {
+    .sign-container {
+        margin-top: -20vh;
+        width: 50vw;
+        
+        
+    }
+    .main-line {
+       /* Adjusted clamp for larger screens */
+       font-size: clamp(4rem, 9vw, 1rem);
+    }
+}
+
+/* Extra-Large Desktop Styles for very wide screens */
+@media (min-width: 1600px) {
+    .main-line {
+        /* This ensures the text fills the frame on very wide monitors */
+        font-size: clamp(6rem, 6vw, 10rem);
+    }
+}
+
+
+@keyframes flicker-main {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+            0 0 4px #fff,
+            0 0 11px #fff,
+            0 0 19px #fff,
+            0 0 40px var(--neon-pink),
+            0 0 80px var(--neon-pink),
+            0 0 90px var(--neon-pink),
+            0 0 100px var(--neon-pink),
+            0 0 150px var(--neon-pink);
+        opacity: 1;
+    }
+    20%, 24%, 55% { text-shadow: none; opacity: 0.5; }
+}
+
+  /* Container for the smaller service cards.
+    Ensures they have a consistent size and hover effect.
+  */
+  .card-container {
+    @apply relative aspect-[3/4] rounded-lg overflow-hidden border border-slate-800/50 bg-slate-900/50 transition duration-300 hover:scale-105 hover:border-purple-400;
+  }
+
+  /* Styles for the text content within the service cards.
+  */
+  .card-content {
+    @apply absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-slate-900 to-transparent;
+  }
+  .card-title {
+    @apply text-xl font-bold text-purple-400;
+  }
+  .card-text {
+    @apply mt-2 text-sm text-slate-400;
+  }
+.showcase-grid {
+    @apply grid grid-cols-1 gap-16;
+  }
+
+  /* Each individual item in the showcase */
+  .showcase-item {
+    @apply flex flex-col; /* Ensures title and embed are stacked vertically */
+  }
+
+  /* The title above each showcase embed */
+  .showcase-title {
+    @apply text-2xl mb-4;
+  }
+  
+  /* Container for the larger showcase Spline embeds.
+    This is the key fix: it guarantees a size for the embed.
+  */
+  .spline-container {
+    @apply w-full h-[48rem] rounded-lg overflow-hidden bg-slate-900/50 border border-slate-800/50;
+  }
+
+  /* Ensure the Spline viewer fills its container.
+  */
+  spline-viewer {
+    @apply w-full h-full;
+  }
+
+  /* --- NEW STYLES FOR PRICING MODAL --- */
+
+  /* The semi-transparent background overlay */
+  #modal-overlay {
+    @apply fixed inset-0 bg-black/80 backdrop-blur-sm z-40 transition-opacity duration-300;
+  }
+
+  /* The container for the detailed pricing info, hidden by default */
+  #pricing-card .pricing-details {
+    @apply absolute inset-0 p-6 bg-slate-900 flex flex-col justify-center items-center text-center opacity-0 transition-opacity duration-300 pointer-events-none;
+  }
+
+  /* When the pricing card gets the 'active' class... */
+  #pricing-card.active {
+    @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[90vw] max-w-lg scale-110;
+  }
+
+  /* ...make the detailed pricing info visible. */
+  #pricing-card.active .pricing-details {
+    @apply opacity-100;
+  }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electro Chowder Neon Sign</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-pink: #ff00de;
+            --background-color: #1a1a1a;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--background-color);
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .background-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            /* The URL for the uploaded image is used here. */
+            background-image: url('/building nf.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sign-container {
+            position: absolute;
+            /* These percentages are estimates to position the sign correctly on the building */
+            top: 36.5%; 
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            border: 5px solid #000; /* Simulates the sign's physical border */
+            border-radius: 15px;
+            padding: 20px 40px;
+            background-color: rgba(0,0,0,0.5); /* Dark background to make neon pop */
+            box-shadow: 0 0 20px rgba(0,0,0,0.7);
+        }
+        
+        .neon-text {
+            color: #fff;
+            text-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px var(--neon-pink),
+                0 0 82px var(--neon-pink),
+                0 0 92px var(--neon-pink),
+                0 0 102px var(--neon-pink),
+                0 0 151px var(--neon-pink);
+        }
+
+        /* .welcome-line {
+            font-size: 2.5vw; 
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            margin-bottom: 10px;
+            animation: flicker-subtle 5s infinite alternate;
+        } */
+        
+        .main-line {
+            font-size: 5vw; /* Responsive font size */
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            animation: flicker-main 3s infinite alternate;
+        }
+
+        /* Main flicker animation for "ELECTRO CHOWDER" */
+        @keyframes flicker-main {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                    0 0 4px #fff,
+                    0 0 11px #fff,
+                    0 0 19px #fff,
+                    0 0 40px var(--neon-pink),
+                    0 0 80px var(--neon-pink),
+                    0 0 90px var(--neon-pink),
+                    0 0 100px var(--neon-pink),
+                    0 0 150px var(--neon-pink);
+                opacity: 1;
+            }
+            20%, 24%, 55% {        
+                text-shadow: none;
+                opacity: 0.5;
+            }
+        }
+
+        /* More subtle flicker for "WELCOME TO" */
+        @keyframes flicker-subtle {
+            0%, 48%, 52%, 100% {
+                text-shadow:
+                    0 0 2px #fff,
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 20px var(--neon-pink),
+                    0 0 35px var(--neon-pink),
+                    0 0 40px var(--neon-pink);
+                opacity: 1;
+            }
+            50% {        
+                text-shadow: none;
+                opacity: 0.7;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="background-container">
+        <div class="sign-container">
+            <!-- <h2 class="neon-text welcome-line">WELCOME TO</h2> -->
+            <h1 class="neon-text main-line">ELECTRO CHOWDER</h1>
+        </div>
+    </div>
+
+</body>
+</html>
